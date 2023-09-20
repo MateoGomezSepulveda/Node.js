@@ -1,0 +1,90 @@
+Taller Simulacro 21 de julio:
+
+La congregación eclesiástica "Heavens"  ha crecido en los últimos 3 años y hay nuevas sedes en distintas comunas y barrios de Bucaramanga y su zona metropolitana.    Los directivos de la iglesia, han solicitado a campus que desarrollen un proyecto Full stack que administre todas las base de datos de los creyentes. Los requerimientos son los siguientes:
+
+1. La información Geográfica del barrio de residencia del creyente y su respectiva comuna, municipio y Departamento de residencia, sera gestionada en base de datos:  MySQL, y la informacion "espiritual" del  creyente, sera administrada en Mongo DB.
+
+2.  La base de datos en Mysql  gestionarán información Geográfica, asi: Departamento( un departamento tiene muchos municipios), municipio(un municipio tiene muchas comunas), comuna( una comuna tiene muchos barrios)  y en un barrio vive y pertenece un creyente: 
+
+Departamento único a manejar  sera santander.  De santander solo se manejarán los municipios de Bucaramanga, piedecuesta, Florida blanca y Giron.
+
+Ejemplo, creyente phidolly: 
+
+Departamento: Santander
+Municipio: Bucaramanga
+Comuna: 13 Oriental
+Barrio: San alonso
+
+ Aquí se observa en el caso de santander -Bucaramanga, todas sus comunas y su barrios respectivos:
+
+https://www.amb.gov.co/bucaramanga/#:~:text=El%20suelo%20urbano%20se%20divide,(sectores%20con%20poblaci%C3%B3n%20flotante).
+
+Investigar en el caso de piedecuesta, Floridablanca y Giron.
+
+3.  En el caso de Mysql, Los campos a manejar en cada una de las tablas son:
+
+Creyente: ( ididentificacion, nombres, email, NroCelular, dirección, IdBarrio).
+
+Barrio(idBarrio, nombreBarrio, idComuna)
+
+Comuna (idComuna, nombreComuna, idMunicipio)
+
+Municipio( idMunicipio, NombreMunicipio, idDepartamento).
+
+Departamento(idDepartamento, nombreDepartamento).
+
+En un "backend" en Node Js, hacer los cruds para cada una de las tablas de creyentes, barrios, comunas y municipios en una base de datos mysql llamada: "iglesiaHeavensMysqlDB".
+
+Las consultas que se piden en mysql serán  desarrodas en una ApiRest en dicho sistema "backend" en Node Js y serán  consumidas desde un sistema FrontEnd Js y son las siguientes: 
+
+1. Listado de todos los Creyentes de bucaramanga.
+2. Listado de los creyentes del barrio cañaveral. Del municipio de Floridablanca.
+3.  Listado de los creyentes de la comuna 5 de bucaramanga
+4. Listado de los creyentes del barrio "San pio" de la ciudad de Bucaramanga.
+5. Listado de todos los creyentes del departamento de santander.
+
+Nota: Para este caso, el sistema  debe gestionar mediante algun condicional, la conexión a la base de datos enMysql usando la debida cadena de conexión. Para que el sistema Frontend visualice los resultados esperados
+
+4.  En el caso de mongoDb, hacer solamente la colección: "creyente" dentro de MongoAtlas,  con  los siguientes datos:
+El _id es el automático de Mongo
+Creyente( _id, nombre, ministerio, nivelFormacion, edad y nivelRuta), en donde las llaves de ministerio, nivelFormacion y nivelRuta, tendrán en su esquema del modelo gestionado por mongoose , un enum con los siguientes valores:
+
+Ministerio: 
+enum: ["Adoracion", "Mujeres", "jovenes", "Hombres"]
+
+nivelFormacion:
+enum : ["Liderazgo", "Anciano"]
+
+nivelRuta: enum ["nuevo", "consolidado", "enviado"]
+
+En un backend para mongo hacer el crud en una apiRest para la colección  "creyente" y usar  la base de datos mongoDb llamada "iglesiaHeavensMongoDB" almacenada en la nube Amazon web Services
+
+Las respuestas de la ApiRest en Node Js  a  consultas enviadas  por el mismo sistema FrontEnd en Js que esta api en mongo debe contestar, son:
+
+1. Listado de Creyentes del ministerio de Hombres.
+
+2. Listado de creyentes en el nivel de ruta Enviado
+
+3.  Listado de creyentes mayores de edad (mayores de 18 años).
+
+4. Listado de creyentes con nivel de formación  "Ancianos".
+
+5.  Desarrollar 5 validaciones de cualquier tipo, usando express validator y custom Middlewares.
+
+Nota: Para este caso, el sistema debe gestionar mediante algun condicional, la conexión a la base de datos a MongoDb usando la debida cadena de conexión para que el sistema Frontend visualice los resultados esperados.
+
+El proyecto web, será realizado en parejas máximo o individual si es la preferencia
+
+No se aceptan grupos de 3 o más campers, bajo ninguna excepción. 
+
+El proyecto debe ser enviado al correo de campuslands del trainer Vermen antes de finalizar la sesión de fecha 21 de julio.
+
+Recomendaciones:
+
+1. Trabajar todo el tiempo en  silencio, únicamente conversando con el compañero de equipo.
+
+2. Dar ejemplo de disciplina y buen comportamiento con total quietud y orden.
+
+3. No usar el computador para ninguna actividad diferente a la de desarrolĺar el taller.
+
+4. Recuerden que siempre tienen ojos vigilandolos y todo el tiempo los están monitoreando en remoto y en físico también

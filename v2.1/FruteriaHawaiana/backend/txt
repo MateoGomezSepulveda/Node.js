@@ -1,0 +1,22 @@
+-----------------------------------------Json web token------------------------------------------------------
+1. instalamos en json web token con el siguiente codigo npm i jsonwebtoken
+2. creamos una carpeta llamada helpers y dentro de ella creamos un archivo llamado generate.JWT.json
+3. dentro de este archivo llamamos a jsonwebtoken con require 
+4.despues creamos una cosntante llamada generateJWT y le cremos su respectivo array dentro de estos 
+parentesis colocamos el (udi=) ''
+5. despues de esto retornamos con new a la variable la clase Promise y dentro de este ponemos el resolve y reject
+6.luego creamos nuestra constante payload y la igualamos a nuestro objeto {udi}
+7. luego utilizamos nuestro jwt y con sintaxis de punto ponemos la firma con sign y a esta sign pasamos 
+los argumentos payload y le pasmaos la variable de entorno con process.env.SECRET_OR_PRIVATE_KEY
+8. luego creamos en nuestro. env nuestro SECRET_OR_PRIVATE_KEY
+9.luego le pasamos el siguiente argumento que es expiresIn y le pasamos la cantidad de tiempo
+10. despues de esto creamos nuestro colback entonces ponemos nuestro err y el token
+11 despues creamos nuestro if y nuestro else y utilizamos nuestro reject y resolve 
+12.despues exportamos nuestra variable generateJWT 
+13. en  este paso entramos a nuestro auth.controllers y y en la parte de validaciones creamos nuestra constante
+token y lo igualamos a nuestro generateJWT 
+
+------------------------------------Proteger rutas con JWT--------------------------------------------------------
+1. en primer instancia vamos a entrar a nuestro controller de usuarios y vamos a empezar a hacer las validaciones
+de nuestro method HTTP PUT despues de ingresar el respectivo codigo vamos a nuestras routes.usuario y añadimos en la
+extension el "Id"
